@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
+<div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
         <h1 class="text-2xl font-semibold text-gray-800 mb-6">Listado de Productos</h1>
 
         <div class="mb-4">
@@ -29,7 +29,7 @@
                     <td class="px-6 py-4 border-b border-gray-200">{{ product.title }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">{{ product.purchase_price }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">{{ product.sale_price }}</td>
-                    <td class="px-6 py-4 border-b border-gray-200">{{ product.tax_percentage }}</td>
+                    <td class="px-6 py-4 border-b border-gray-200">{{ product.tax }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">
                         <button @click="editProduct(product)" class="text-blue-500 hover:underline mr-2">Editar</button>
                         <button @click="deleteProduct(product)" class="text-red-500 hover:underline">Eliminar</button>
@@ -44,6 +44,7 @@
 
 <script>
 import { ref } from 'vue';
+
 //  import { useForm, Inertia } from '@inertiajs/vue3';
 
 import Pagination from '@/Components/Pagination.vue';
@@ -59,7 +60,7 @@ export default {
 
         const fetchProducts = () => {
 
-            // Inertia.get(route('products.index'), { search: filters.value.search }, { preserveState: true });
+            Inertia.get(route('products.index'), { search: filters.value.search }, { preserveState: true });
         };
 
         return { filters, fetchProducts };
